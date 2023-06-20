@@ -1,14 +1,13 @@
 # Electromagnetic and thermal calculation of hydrogenerators
-## Features
-- MATLAB code is FORTRAN77 conversion
-- Weight of damping segments increased by a factor of 2 (somewhat overestimated) by interpolation we determine gk1=f(delmm) to calculate losses.
-- Created by MATLAB 2019R
+Calculation is performed by:
+1. Glebov I.A., Dombrovsky V.V., Dukshtau A.A., 
+Paper A.S., Pinsky G.B., Shkolnik E.V. Hydrogenerators. Energoizdat, 368 p. 2. ISO 19283:2020
+2. Abramov A.I., Ivanov-Smolenskiy A.V. Raschet i konstruktsiya gidrogeneratorov (Calculation and design of hydrogenerators)
 
 ## Folders
 
 | Folders | Description |
 | ------ | ------ |
 | data | Initial data |
-| fortran | FOTRAN77 code |
 | stations | Initial parameters of generators |
 | util | Pull of additional app |
