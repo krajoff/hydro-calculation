@@ -1,4 +1,4 @@
-function pull(sf)
+function pull(sf, genType)
     firstStep(sf);
     fieldWinding(sf);
     damperWinding(sf);
@@ -6,5 +6,6 @@ function pull(sf)
     concordanceBlock(sf);
     ratedCurrent(sf);
     dataLosses(sf);
-    soon(sf);
+    soon(sf, genType);
+   
 end

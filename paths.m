@@ -5,6 +5,10 @@ function [sf, cf] = paths
     if exist(sf, 'file'), delete(sf); end
 
     addpath(fullfile(pwd, '\util'));
+    addpath(fullfile(pwd, '\util\calculation'));
+    addpath(fullfile(pwd, '\util\report'));
+    addpath(fullfile(pwd, '\util\report\html'));
+    addpath(fullfile(pwd, '\util\report\xls'));
     addpath(fullfile(pwd, '\stations'));
     addpath(fullfile(pwd, '\data'));
     addpath(fullfile(pwd, '\results'));

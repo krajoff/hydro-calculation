@@ -1,4 +1,4 @@
-function soon(sfile)
+function soon(sfile, genType)
     load(sfile, '*');
     struct = open(sfile); not = struct.not; qr = struct.qr; ga = struct.ga;
     bm = struct.bm;
@@ -304,6 +304,8 @@ function soon(sfile)
         urotfi(j) = ied(j)*rtefi;
         urot1(j) = ie1d(j)*rte1;
     end
+    fprintf("Calculation hydro-generator %s is done.\n", ...
+        strrep(genType, "_", "/"));   
     clear('struct');
     save(sfile);
     fclose('all');
