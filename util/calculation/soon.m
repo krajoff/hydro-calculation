@@ -2,6 +2,7 @@ function soon(sfile, genType)
     load(sfile, '*');
     struct = open(sfile); not = struct.not; qr = struct.qr; ga = struct.ga;
     bm = struct.bm;
+    
     % Data for printing values in tabl. at U = 1.
     bpin = bpi(jnom);
     bm12n = bm12(jnom);
@@ -304,6 +305,7 @@ function soon(sfile, genType)
         urotfi(j) = ied(j)*rtefi;
         urot1(j) = ie1d(j)*rte1;
     end
+    
     fprintf("Calculation hydro-generator %s is done.\n", ...
         strrep(genType, "_", "/"));   
     clear('struct');

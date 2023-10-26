@@ -7,5 +7,4 @@ function pull(sf, genType)
     ratedCurrent(sf);
     dataLosses(sf);
     soon(sf, genType);
-   
 end
