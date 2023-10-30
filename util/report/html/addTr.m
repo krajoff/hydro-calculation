@@ -1,4 +1,6 @@
 function tr = addTr(varargin)
+    feature('DefaultCharacterSet', 'windows-1251');
+
     switch length(varargin)
         case 1
             tr = ['<tr class="heighttr">\n<td colspan="2">\n', ...

@@ -1,16 +1,19 @@
 function htmlReportNew(sfile, gentype)
     load(sfile, '*');
     file = fullfile(pwd, 'results', ['solution_', gentype, '.html']);
+    nl = notationsLong();
+    ns = notationsShort();
+    feature('DefaultCharacterSet', 'windows-1251');
+
     h = headHtml;
     h = [h, '<table class="cwdtable">\n' ...
                 '<tr class="heighttr">\n' ...
                     '<td colspan="2" class="boldtype">' ...
-                    'Расчет магнитной цепи</td>\n' ...
+                    '������ ��������� ����</td>\n' ...
                 '</tr>\n'];
-    h = [h, addTr('Коэффициент формы поля', '%1.3f', fkf)];
-    h = [h, addTr(['Коэффициент поля, входящего ', ...
-        'в башмак полюса'], '%1.3f', aklam)];
-    h = [h, addTr('Коэффициенты  Картера:')];
+    h = [h, addTr(nl('fkf'), '%1.3f', fkf)];
+    h = [h, addTr(nl('aklam'), '%1.3f', aklam)];
+    h = [h, addTr('������������ �������:')];
     
     ul = ['первый %1.3f; второй %1.3f; ' ...
         'третий %1.3f; полный %1.3f'];
@@ -32,7 +35,7 @@ function htmlReportNew(sfile, gentype)
     h = [h, '<tr class="heighttr">\n', ...
                 '<td colspan="2" class="ultd">\n', ul,'\n</td>\n</tr>\n'];
     
-    fid = fopen(file, 'w');
+    fid = fopen(file, 'w', 'native', 'windows-1251');
     fprintf(fid, h);
     fclose(fid);
 end
