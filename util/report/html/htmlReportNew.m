@@ -35,7 +35,7 @@ function htmlReportNew(sfile, gentype)
     h = [h, '<tr class="heighttr">\n', ...
                 '<td colspan="2" class="ultd">\n', ul,'\n</td>\n</tr>\n'];
     
-    fid = fopen(file, 'w', 'native', 'windows-1251');
+    fid = fopen(file, 'W', 'native', 'windows-1251');
     fprintf(fid, h);
     fclose(fid);
 end
