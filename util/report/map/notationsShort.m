@@ -1,11 +1,13 @@
-function n = notationsShort() 
+function n = notationsShort()
+    slCharacterEncoding('windows-1251')
+    feature('DefaultCharacterSet', 'windows-1251');
     n = containers.Map('KeyType', 'char', 'ValueType', 'char');
     n('fkf') = 'Коэффициент формы поля';
     n('aklam') = 'Коэффициент поля, входящего в башмак полюса';
-    n('dkd1') = 'Первый';
-    n('dkd2') = 'Второй';
-    n('dkd3') = 'Третий';
-    n('dkd') = 'Полный';
+    n('dkd1') = 'первый';
+    n('dkd2') = 'второй';
+    n('dkd3') = 'третий';
+    n('dkd') = 'полный';
     n('ap') = 'АР'; 
     n('dt') = 'ДТ';
     n('cp') = 'СР';
