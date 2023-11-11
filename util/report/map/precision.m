@@ -173,9 +173,9 @@ function n = precision()
     n('uuf') = '%.0f'; 
     n('kad') = '%.3f';
     n('kaq') = '%.3f'; 
-    n('lamot') = '%.3f';
-    n('lamz') = '%.3f';
-    n('lamsr') = '%.3f';
+    n('lamot') = '%.2f';
+    n('lamz') = '%.2f';
+    n('lamsr') = '%.2f';
     %% Активные сопротивления
     n('rast') = '%.5f';
     n('r1') = '%.5f';

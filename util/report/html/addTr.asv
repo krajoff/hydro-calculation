@@ -23,11 +23,8 @@ function tr = addTr(varargin)
                 dimention = dmn(varargin{2});
             end
             if varargin{1} == "lnpv" || varargin{1} == "lnpvd" || ...
-               varargin{1} == "snpv" || varargin{1} == "snpvd" 
+               varargin{1} == "snpv" || varargin{1} == "snpvd"    
                 description = nl(varargin{2});
-                if varargin{1} == "snpv" || varargin{1} == "snpvd"
-                    description = ns(varargin{2});
-                end
                 formatSpec = prc(varargin{2});
                 digital = varargin{3};
             end 
