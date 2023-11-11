@@ -11,4 +11,4 @@ close all; clear; clc;
 pull(sf, genType);
 
 % Report module: 'html' by default, 'xls'
-htmlReportNew(sf, genType);
+htmlReport(sf, genType);
