@@ -5,9 +5,7 @@ close all; clear; clc;
 % Convert input dat-file to:
 % genType is a type of hydro-generator
 % id is an initial data from a dat-file 
-[id, genType] = imDatFile('input_1.dat');
-id = covert2struct(id); 
-joinStructByCell({id; cf}, sf);
+[id, genType] = readData('input_1.dat', sf, cf);
 
 % Whole calculation modules
 pull(sf, genType);
