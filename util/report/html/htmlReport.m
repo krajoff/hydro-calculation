@@ -7,11 +7,10 @@ function htmlReport(sfile, gentype)
 
     h = headHtml;
     h = magneticCircuitCalculation(h, sfile, nl, sl, prc);
-    h = breakPage(h);
     h = noloadCharacteristic(h, sfile);
-    h = breakPage(h);
     h = inductancesTime(h, sfile, sl, prc);
-    h = breakPage(h);
+    h = lossesRatedPower(h, sfile, nl, prc);
+    %h = lossesPartialLoad(h, sfile, nl, prc);
 
     fid = fopen(file, 'W', 'native', 'windows-1251');
     fprintf(fid, h);

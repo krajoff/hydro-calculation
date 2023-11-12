@@ -1,0 +1,40 @@
+function h = lossesPartialLoad(hi, sfile, nl, prc)
+    feature('DefaultCharacterSet', 'windows-1251');
+    load(sfile, '*');
+    dmn = dimension();
+    
+    h = [hi, '<table class="cwdtable">\n'];
+    h = [h, addTr('boldtype', ['КПД при частичных нагрузках ' ...
+        'и коэффициенте мощности ' sprintf('%.3f', cosnom)])];
+    
+    trc = '<tr class="heighttr">\n';
+    h = [h trc addTd('Постоянные') ...
+               addTd('Короткое замыкание') ...
+               addTd('')'</tr>']; 
+    
+    
+    потери          
+----------------
+постоянные      
+koр.замыкания   
+на возбуждение  
+сист.возбуждения
+полные          
+ток возбуждения 
+напр.возбуждения
+kпд             
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    h = [h, '</table>'];
+    h = [h, '<div style="break-after:page"></div>\n'];
+end

@@ -43,15 +43,15 @@ function h = inductancesTime(hi, sfile, sl, prc)
     h = [h, addTr('snpv', 'x0', x0)];       
     
     h = [h, addTr('Постоянные времени')];
-    h = [h, addTr('snpv', 'td01', td01)];
-    h = [h, addTr('snpv', 'td1', td1)];
-    h = [h, addTr('snpv', 'ta', ta)];
+    h = [h, addTr('snpvd', 'td01', td01)];
+    h = [h, addTr('snpvd', 'td1', td1)];
+    h = [h, addTr('snpvd', 'ta', ta)];
     h = [h, addTr('left','Демпферной обмотки по продольной оси')];
-    h = [h, addTr('snpv', 'tc01', tc01, '&nbsp &nbsp')];
-    h = [h, addTr('snpv', 'td02', td02, '&nbsp &nbsp')];
+    h = [h, addTr('snpvd', 'tc01', tc01, '&nbsp &nbsp')];
+    h = [h, addTr('snpvd', 'td02', td02, '&nbsp &nbsp')];
     h = [h, addTr('left','Демпферной обмотки по поперечной оси')];
-    h = [h, addTr('snpv', 'tq01', tq01, '&nbsp &nbsp')];
-    h = [h, addTr('snpv', 'tq2', tq2, '&nbsp &nbsp')];
+    h = [h, addTr('snpvd', 'tq01', tq01, '&nbsp &nbsp')];
+    h = [h, addTr('snpvd', 'tq2', tq2, '&nbsp &nbsp')];
     
     h = [h, addTr('lnpv', 'okz', okz)];
     h = [h, addTr('lnpv', 'stover', stover)];
@@ -60,4 +60,6 @@ function h = inductancesTime(hi, sfile, sl, prc)
     h = [h, addTr('lnpvd', 'c1f', c1f)];
     h = [h, addTr('lnpvd', 'crot', crot)];
     h = [h, addTr('lnpvd', 'qczar', qczar)];
+    h = [h, '</table>\n'];
+    h = [h, '<div style="break-after:page"></div>\n'];
 end

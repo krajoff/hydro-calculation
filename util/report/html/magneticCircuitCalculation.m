@@ -57,4 +57,5 @@ function h = magneticCircuitCalculation(hi, sfile, nl, sl, prc)
     h = [h, addTr('lnpvd', 'hhin', hhin, 23)];  
 	h = [h, addTr('lnpvd', 'uuf', uuf(3), 24)];
     h = [h, '</table>\n'];
+    h = [h, '<div style="break-after:page"></div>\n'];
 end

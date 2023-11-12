@@ -38,4 +38,6 @@ function h = noloadCharacteristic(hi, sfile)
     h = [h, addTr('lnpvd', 'awad', awad)];
     h = [h, addTr('lnpvd', 'awk', awk)];    
     h = [h, '</table>'];
+    
+    h = [h, '<div style="break-after:page"></div>\n'];
 end
