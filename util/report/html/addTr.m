@@ -17,9 +17,13 @@ function tr = addTr(varargin)
             dimention = '';
             numeration = '';
             if numVar == 4 
-                numeration = sprintf('%i', varargin{4});
+                if isnumeric(varargin{4})
+                    numeration = sprintf('%i', varargin{4});
+                else
+                    numeration = varargin{4};
+                end
             end 
-            if varargin{1} == "lnpvd" 
+            if varargin{1} == "lnpvd" || varargin{1} == "snpvd"
                 dimention = dmn(varargin{2});
             end
             if varargin{1} == "lnpv" || varargin{1} == "lnpvd" || ...
