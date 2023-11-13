@@ -274,11 +274,11 @@ function n = dimension()
     n('wfe') = 'Вт/см';
     n('wcu') = 'Вт/см';
     n('wi') = 'Вт/см';
-    n('teti') =  [char(176) 'С'];
-    n('tetfe') =  [char(176) 'С'];
-    n('tets') =  [char(176) 'С'];
-    n('tetcu') =  [char(176) 'С'];
+    n('teti') = [char(176) 'С'];
+    n('tetfe') = [char(176) 'С'];
+    n('tets') = [char(176) 'С'];
+    n('tetcu') = [char(176) 'С'];
     %% Тепловой расчет обмотки возбуждения
     n('wcu2') = 'Вт/см';
-    n('tetep') =  [char(176) 'С'];
+    n('tetep') = [char(176) 'С'];
 end
