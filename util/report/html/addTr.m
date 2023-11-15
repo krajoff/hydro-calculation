@@ -55,7 +55,7 @@ function tr = addTr(varargin)
                          '<td class="bordertd">' description '</td>\n'];
             end
                 tr = [tr '<td class="bordertd">' formatSpec ...
-                    ' ' dimention '</td>\n </tr>\n'];
+                    ' ' dimention '</td>\n</tr>\n'];
             tr = sprintf(tr, digital);
     end
 end

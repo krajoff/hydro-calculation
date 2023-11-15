@@ -10,8 +10,8 @@ function [data, gentype] = imDatFile(fileToRead)
     end
     fclose(fileID);
     swrow = str2double(split(top(2), '   '));
-    gentype = regexprep(top(3),'[^0-9+-/]','');
-    gentype = regexprep(gentype,'[/*?:<>;"]','_');
+    gentype = regexprep(top(3),'[^0-9+-]','');
+    gentype = regexprep(gentype,'[*?:<>;"]','_');
     gentype = char(gentype);
     data = readmatrix(fileToRead)';
     data = data(:);

@@ -1,7 +1,11 @@
 function soon(sfile, genType)
     load(sfile, '*');
-    struct = open(sfile); not = struct.not; qr = struct.qr; ga = struct.ga;
+    struct = open(sfile); 
+    not = struct.not; 
+    qr = struct.qr; 
+    ga = struct.ga;
     bm = struct.bm;
+    xl = struct.xl;
     
     % Data for printing values in tabl. at U = 1.
     bpin = bpi(jnom);
@@ -46,9 +50,9 @@ function soon(sfile, genType)
     xq1 = xq;
     xp = 0.8*xd1;
 
-    % Symplified swedish diagram for rated field winding current
+    % Symplified Swedish diagram for rated field winding current
     awtnom = awsum(nhhh+1);
-    vw = 0.8*xd1*(awsumn-awdn); % it was commeted
+    vw = 0.8*xd1*(awsumn-awdn); % it was committed debug line
     awk = awad+xl*awdn;
     dlab = awk+vw;
     dlan = awtnom-awsumn;
@@ -196,10 +200,10 @@ function soon(sfile, genType)
         raswoz = (pqfehh+pqkzgr+pqwen)/  ...
             (tetwoz*1.1-0.1124*1.4*(vms/10)^2);
     end
-    if raswoz == 0, raswoz = fix(raswoz); end
+    if raswoz == 0, raswoz = int32(raswoz); end
     if raswoz == 0, raswoz = raswoz+1; end
     pqv = 0.1124*1.4*(vms/10)^2*raswoz;
-    if nr == 0, pqv = 0.; end
+    if nr == 0, pqv = 0; end
     if fpp ~= 0
         pqpodp = qwpp*grt/fpp;
     else
@@ -208,7 +212,7 @@ function soon(sfile, genType)
     pqpost = pqfehh+pqv+pqpodp+qwps;
     tetwoz = (pqfehh+pqkzgr+pqv+pqwen)/1.1/raswoz;
     if nr == 0, raswoz = 0.; end
-    if nr == 0,tetwoz = 0.; end
+    if nr == 0, tetwoz = 0.; end
 
     % Cycle of kpd calculating
     for j = 1:15

@@ -4,14 +4,14 @@ function h = inductancesTime(hi, sfile, sl, prc)
     
     h = [hi, '<table class="cwdtable">\n'];
     h = [h, addTr('boldtype', 'Параметры')];
-    h = [h, addTr('Коэффициенты  реакции  якоря')];
+    h = [h, addTr('left', 'Коэффициенты  реакции  якоря:')];
     ul = [sl('kad'), ' ', prc('kad'), '; ', ...
           sl('kaq'), ' ', prc('kaq')];     
     ul = sprintf(ul, kad, kaq);
     h = [h, addTr('ultd', ul)];
     h = [h, addTr('К расчету рассеяния демпферной обмотки')];
     h = [h, addTr('lnpv', 'bs1', bs1)];
-    h = [h, addTr('Проводимость пазов')];
+    h = [h, addTr('left', 'Проводимость пазов:')];
     ul = [sl('lamot'), ' ', prc('lamot'), '; ', ...
           sl('lamz'), ' ', prc('lamz'), '; ', ...
           sl('lamsr'), ' ', prc('lamsr')];     
@@ -46,10 +46,11 @@ function h = inductancesTime(hi, sfile, sl, prc)
     h = [h, addTr('snpvd', 'td01', td01)];
     h = [h, addTr('snpvd', 'td1', td1)];
     h = [h, addTr('snpvd', 'ta', ta)];
-    h = [h, addTr('left','Демпферной обмотки по продольной оси')];
+    h = [h, addTr('left','Демпферной обмотки по продольной оси:')];
     h = [h, addTr('snpvd', 'tc01', tc01, '&nbsp &nbsp')];
     h = [h, addTr('snpvd', 'td02', td02, '&nbsp &nbsp')];
-    h = [h, addTr('left','Демпферной обмотки по поперечной оси')];
+    h = [h, addTr('snpvd', 'td2', td2, '&nbsp &nbsp')];    
+    h = [h, addTr('left','Демпферной обмотки по поперечной оси:')];
     h = [h, addTr('snpvd', 'tq01', tq01, '&nbsp &nbsp')];
     h = [h, addTr('snpvd', 'tq2', tq2, '&nbsp &nbsp')];
     

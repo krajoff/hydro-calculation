@@ -6,6 +6,7 @@ function htmlReport(sfile, gentype)
     feature('DefaultCharacterSet', 'windows-1251');
 
     h = headHtml;
+    h = mainInfo(h, sfile);
     h = magneticCircuitCalculation(h, sfile, nl, sl, prc);
     h = noloadCharacteristic(h, sfile);
     h = inductancesTime(h, sfile, sl, prc);

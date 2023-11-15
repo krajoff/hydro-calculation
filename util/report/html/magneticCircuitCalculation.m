@@ -6,14 +6,14 @@ function h = magneticCircuitCalculation(hi, sfile, nl, sl, prc)
     h = [h, addTr('boldtype', 'Расчёт магнитной цепи')];
     h = [h, addTr('lnpv', 'fkf', fkf)];
     h = [h, addTr('lnpv', 'aklam', aklam)];   
-    h = [h, addTr('Коэффициенты Картера:')];
+    h = [h, addTr('left', 'Коэффициенты Картера:')];
     ul = [sl('dkd1'), ' ', prc('dkd1'), '; ', ...
           sl('dkd2'), ' ', prc('dkd2'), '; ', ...
           sl('dkd3'), ' ', prc('dkd3'), '; ', ... 
           sl('dkd'), ' ', prc('dkd'), ''];
     ul = sprintf(ul, dkd1, dkd2, dkd3, dkd);
     h = [h, addTr('ultd', ul)];   
-    h = [h, addTr('Расчёт проводимостей полюсов')];
+    h = [h, addTr('left' ,'Расчёт проводимостей полюсов:')];
     ul = [nl('ap'), ' ', prc('ap'), '; ', ...
           nl('dt'), ' ', prc('dt'), '; ', ...
           nl('cp'), ' ', prc('cp')];     

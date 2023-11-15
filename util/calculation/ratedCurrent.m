@@ -42,7 +42,7 @@ function ratedCurrent(sfile)
         +ai*(nprow/2.+xtrans)+ahi*(nh/2.+1.));
     end
 
-    % gam = 1.55*1.E-3 kg/sm^3 - per unit weight of mikalent
+    % gam = 1.55*1.e-3 kg/sm^3 - per unit weight of mikalent
     % gam = 1.8*1.e-3 ....termoreactive type of insulatio
     gam = 1.55*1.e-3;
     if tipiz == 1, gam = 1.85*1.e-3; end
