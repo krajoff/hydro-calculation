@@ -1,12 +1,14 @@
 function H = mainInfo(hi, sfile)
     feature('DefaultCharacterSet', 'windows-1251');
     load(sfile, '*');
+    
     struct = open(sfile); 
     cd = struct.cd;
     brr = join(repmat('&nbsp',1,2),'');
     H = [hi, '<table class="cwdtable">\n'];
-    H = [H, addTr('boldtype', 'Исходые данные')];
+    H = [H, addTr('boldtype', 'Основные данные')];
     H = [H, addTr('lnpvd', 'tipmas', strrep(genType, "_", "/"))];
+    
     H = [H, addTr('lnpvd', 'snom', snom)];
     H = [H, addTr('lnpvd', 'cosnom', cosnom)];
     H = [H, addTr('lnpvd', 'un', un)];
@@ -47,6 +49,7 @@ function H = mainInfo(hi, sfile)
     H = [H, addTr('snpvd', 'qz3', qz3, brr)];    
     H = [H, addTr('snpvd', 'qz2', qz2, brr)];
     H = [H, addTr('snpvd', 'cd', cd, brr)];
+    
     H = [H, addTr('left', 'Обмотка статора')];
     H = [H, addTr('snpvd', 'i1', i1, brr)];
     H = [H, addTr('snpvd', 'ia', ia, brr)];
@@ -74,9 +77,9 @@ function H = mainInfo(hi, sfile)
     H = [H, addTr('snpvd', 'fw', fw, [brr brr])];
     
     H = [H, addTr('left', 'Полюс')];
+    
     H = [H, addTr('left', 'Обмотка возбуждения')];
 
-    H = [H, '</table>'];
-    
+    H = [H, '</table>'];    
     H = [H, '<div style="break-after:page"></div>\n'];
 end

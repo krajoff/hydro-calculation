@@ -1,7 +1,6 @@
-function h = lossesRatedPower(hi, sfile, nl, prc)
+function h = lossesRatedPower(hi, sfile, nl, prc, dmn)
     feature('DefaultCharacterSet', 'windows-1251');
     load(sfile, '*');
-    dmn = dimension();
 
     h = [hi, '<table class="cwdtable">\n'];
     h = [h, addTr('boldtype', ['Потери и КПД при номинальной нагрузке '...
