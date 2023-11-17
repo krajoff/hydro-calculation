@@ -1,6 +1,6 @@
 function htmlReport(sfile, gentype)
     file = fullfile(pwd, 'results', ['solution_', gentype, '.html']);
-    st = structure();
+    [st, list] = structure();
     feature('DefaultCharacterSet', 'windows-1251');
 
     h = headHtml;

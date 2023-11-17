@@ -1,4 +1,4 @@
-function s = structure()
+function [s, l] = structure()
     s = struct();
     s.dmn = dimension();
     s.prc = precision();
@@ -9,4 +9,5 @@ function s = structure()
     for i = 1:length(key)
         s.ns(key{i}) = ns(key{i});
     end
+    
 end
