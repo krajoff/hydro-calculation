@@ -1,10 +1,10 @@
 function htmlReport(sfile, gentype)
     file = fullfile(pwd, 'results', ['solution_', gentype, '.html']);
-    [st, list] = structure();
+    st = structure();
     feature('DefaultCharacterSet', 'windows-1251');
 
     h = headHtml;
-    h = mainInfo(h, sfile);
+    h = mainInfo(h, st, sfile);
     h = magneticCircuitCalculation(h, sfile, st.nl, st.ns, st.prc);
     h = noloadCharacteristic(h, sfile);
     h = inductancesTime(h, sfile, st.ns, st.prc);

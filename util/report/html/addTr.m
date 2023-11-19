@@ -1,8 +1,5 @@
 function tr = addTr(varargin)
-    nl = notationsLong();
-    ns = notationsShort();
-    prc = precision();
-    dmn = dimension();
+    st = structure();
     feature('DefaultCharacterSet', 'windows-1251');
     numVar = length(varargin);
     numColSpan = 5 - numVar;
@@ -24,15 +21,15 @@ function tr = addTr(varargin)
                 end
             end 
             if varargin{1} == "lnpvd" || varargin{1} == "snpvd"
-                dimention = dmn(varargin{2});
+                dimention = st.dmn(varargin{2});
             end
             if varargin{1} == "lnpv" || varargin{1} == "lnpvd" || ...
                varargin{1} == "snpv" || varargin{1} == "snpvd" 
-                description = nl(varargin{2});
+                description = st.nl(varargin{2});
                 if varargin{1} == "snpv" || varargin{1} == "snpvd"
-                    description = ns(varargin{2});
+                    description = st.ns(varargin{2});
                 end
-                formatSpec = prc(varargin{2});
+                formatSpec = st.prc(varargin{2});
                 digital = varargin{3};
             end 
         otherwise
@@ -54,7 +51,7 @@ function tr = addTr(varargin)
                            '" class="center">'  numeration '</td>\n' ...
                          '<td class="bordertd">' description '</td>\n'];
             end
-                tr = [tr '<td class="bordertd">' formatSpec ...
+                tr = [tr '<td class="righttd">' formatSpec ...
                     ' ' dimention '</td>\n</tr>\n'];
             tr = sprintf(tr, digital);
     end

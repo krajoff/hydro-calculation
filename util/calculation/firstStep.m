@@ -13,14 +13,15 @@ function firstStep(sfile)
     q1 = qo*no+nh*qh;
     jja = ia/q1;
     en = nf*60/n2p*2;
-    bc = int32(nz/(3*n2p));
+    bc = fix(nz/(3*n2p));
     cc = int32(nz-bc*3*n2p);
     dc = int32(3*n2p);
     mdel = 0;
     if cc ~= 0 
-        for j = 1:cc
-          if int32(cc/j*j) == cc && int32(dc/j*j) == dc, mdel = j; end
-        end
+%         for j = 1:cc
+%           if (cc/j*j) == cc && (dc/j*j) == dc, mdel = j; end
+%         end
+        mdel = rem(dc,cc);
         cc = cc/mdel;
         dc = dc/mdel;
     end
