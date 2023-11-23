@@ -8,7 +8,6 @@ Paper A.S., Pinsky G.B., Shkolnik E.V. Hydrogenerators. Energoizdat, 368 p. 2. I
 
 | Folders | Description |
 | ------ | ------ |
-| convert | Read data file: .dat, .m, .xls |
 | data | Initial data: BH-curves, initiation array data|
 | result | Calculation summary at html, pdf, xls|
 | stations | Initial parameters of generators |
