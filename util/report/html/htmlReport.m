@@ -10,7 +10,7 @@ function htmlReport(sfile, gentype)
     h = inductancesTime(h, sfile, st.ns, st.prc);
     h = lossesRatedPower(h, sfile, st.nl, st.prc, st.dmn);
     h = lossesPartialLoad(h, sfile);
-    h = weightCharacteristic(h, sfile);
+    h = weightCharacteristic(h, st, sfile);
     
     fid = fopen(file, 'W', 'native', 'windows-1251');
     fprintf(fid, h);

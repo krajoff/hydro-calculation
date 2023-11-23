@@ -29,8 +29,8 @@ function H = mainInfo(hi, st, sfile)
     H = [H, addTr('left', 'Полюсный башмак')];
     H = [H, listTr('snpvd', st, sfile, 'hp', 'elu', brr)]; 
     H = [H, '</table>'];   
-    
     H = [H, '<div style="break-after:page"></div>\n'];
+    
     H = [H, '<table class="cwdtable">\n'];
     H = [H, addTr('left', 'Полюсный сердечник')];
     H = [H, listTr('snpvd', st, sfile, 'hm', 'qm', brr)];    
