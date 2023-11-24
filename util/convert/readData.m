@@ -3,12 +3,12 @@ function [id, genType] = readData(name, sf, cf)
     [~, nfile, ext] = fileparts(name);
     switch ext
         case '.dat'
-    %if (strcmp(ext, '.dat'))
-        [id, genType] = imDatFile(name);
-        id = covert2struct(id);
-    %elseif (strcmp(ext, '.m'))
+            [id, genType] = imDatFile(name);
+            id = covert2struct(id);
         case '.m'
-        [id, genType] = eval(nfile);
+            [id, genType] = eval(nfile);
+        case '.xls'
+            [id, genType] = imXLSFile(name);
     end
     joinStructByCell({id; cf}, sf);
 end

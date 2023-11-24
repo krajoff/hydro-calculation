@@ -1,4 +1,5 @@
-function [id, genType] = imXLSFile(name)
+name = 'D:\MATLABstuff\hydro-generators-calculation\stations\xls\input_435_190_10.xls';
+
     fileID = fopen(fileToRead, 'r');
     nmb = 3;
     top = "";
@@ -10,4 +11,3 @@ function [id, genType] = imXLSFile(name)
     end
     fclose(fileID);
     M = readmatrix(name);
-end
