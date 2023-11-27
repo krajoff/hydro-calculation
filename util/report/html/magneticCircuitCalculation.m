@@ -1,4 +1,4 @@
-function h = magneticCircuitCalculation(hi, sfile, nl, sl, prc)    
+function h = magneticCircuitCalculation(hi, st, sfile)    
     feature('DefaultCharacterSet', 'windows-1251');
     load(sfile, '*');
 
@@ -7,23 +7,23 @@ function h = magneticCircuitCalculation(hi, sfile, nl, sl, prc)
     h = [h, addTr('lnpv', 'fkf', fkf)];
     h = [h, addTr('lnpv', 'aklam', aklam)];   
     h = [h, addTr('left', 'Коэффициенты Картера:')];
-    ul = [sl('dkd1'), ' ', prc('dkd1'), '; ', ...
-          sl('dkd2'), ' ', prc('dkd2'), '; ', ...
-          sl('dkd3'), ' ', prc('dkd3'), '; ', ... 
-          sl('dkd'), ' ', prc('dkd'), ''];
+    ul = [st.ns('dkd1'), ' ', st.prc('dkd1'), '; ', ...
+          st.ns('dkd2'), ' ', st.prc('dkd2'), '; ', ...
+          st.ns('dkd3'), ' ', st.prc('dkd3'), '; ', ... 
+          st.ns('dkd'), ' ', st.prc('dkd'), ''];
     ul = sprintf(ul, dkd1, dkd2, dkd3, dkd);
     h = [h, addTr('ultd', ul)];   
     h = [h, addTr('left' ,'Расчёт проводимостей полюсов:')];
-    ul = [nl('ap'), ' ', prc('ap'), '; ', ...
-          nl('dt'), ' ', prc('dt'), '; ', ...
-          nl('cp'), ' ', prc('cp')];     
+    ul = [st.ns('ap'), ' ', st.prc('ap'), '; ', ...
+          st.ns('dt'), ' ', st.prc('dt'), '; ', ...
+          st.ns('cp'), ' ', st.prc('cp')];     
     ul = sprintf(ul, ap, dt, cp);
     h = [h, addTr('ultd', ul)];
-    ul = [sl('lampl'), ' ', prc('lampl'), '; ', ...
-          sl('lamml'), ' ', prc('lamml'), '; ', ...
-          sl('lammb'), ' ', prc('lammb'), '; ', ... 
-          sl('lammp'), ' ', prc('lammp'), '; ', ...
-          sl('lamsig'), ' ', prc('lamsig')];
+    ul = [st.ns('lampl'), ' ', st.prc('lampl'), '; ', ...
+          st.ns('lamml'), ' ', st.prc('lamml'), '; ', ...
+          st.ns('lammb'), ' ', st.prc('lammb'), '; ', ... 
+          st.ns('lammp'), ' ', st.prc('lammp'), '; ', ...
+          st.ns('lamsig'), ' ', st.prc('lamsig')];
     ul = sprintf(ul, lampl, lamml, lammb, lammp, lamsig);
     h = [h, addTr('ultd', ul)];
     h = [h, addTr('lnpv', 'xp', xp)];
@@ -32,29 +32,7 @@ function h = magneticCircuitCalculation(hi, sfile, nl, sl, prc)
     h = [h, addTr('lnpvd', 'fi1n', fi1n)];
     h = [h, addTr('lnpvd', 'fin', fin)];
     h = [h, addTr('lnpvd', 'filamn', filamn)];
-    h = [h, addTr('lnpvd', 'uftn', uftn, 1)];
-    h = [h, addTr('lnpvd', 'bdeln', bdeln, 2)];   
-    h = [h, addTr('lnpvd', 'bz3n', bz3n, 3)];   
-    h = [h, addTr('lnpvd', 'ban', ban, 4)];   
-    h = [h, addTr('lnpvd', 'awzn', awzn, 5)];   
-    h = [h, addTr('lnpvd', 'awan', awan, 6)];   
-    h = [h, addTr('lnpvd', 'sigmn', sigmn, 7)];   
-    h = [h, addTr('lnpvd', 'sigpn', sigpn, 8)];   
-    h = [h, addTr('lnpvd', 'bmin', bmin, 9)];   
-    h = [h, addTr('lnpvd', 'bpin', bpin, 10)];   
-    h = [h, addTr('lnpvd', 'bm12n', bm12n, 11)];   
-    h = [h, addTr('lnpvd', 'awt1n', awt1n, 12)];   
-    h = [h, addTr('lnpvd', 'awt3n', awt3n, 13)];   
-    h = [h, addTr('lnpvd', 'awt2n', awt2n, 14)];   
-    h = [h, addTr('lnpvd', 'awmn', awmn, 15)];   
-    h = [h, addTr('lnpvd', 'awdn', awdn, 16)];   
-    h = [h, addTr('lnpvd', 'awzwn', awzwn, 17)];   
-    h = [h, addTr('lnpvd', 'awawn', awawn, 18)];   
-    h = [h, addTr('lnpvd', 'awmwn', awmwn, 19)];   
-    h = [h, addTr('lnpvd', 'awcn', awcn, 20)];   
-    h = [h, addTr('lnpvd', 'awjn', awjn, 21)];  
-	h = [h, addTr('lnpvd', 'awsumn', awsumn, 22)];  
-    h = [h, addTr('lnpvd', 'hhin', hhin, 23)];  
+    h = [h, listTr('lnpvd', st, sfile, 'uftn', 'hhin', (1:23))];
 	h = [h, addTr('lnpvd', 'uuf', uuf(3), 24)];
     h = [h, '</table>\n'];
     h = [h, '<div style="break-after:page"></div>\n'];

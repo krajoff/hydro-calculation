@@ -1,56 +1,39 @@
-function h = inductancesTime(hi, sfile, sl, prc)
+function h = inductancesTime(hi, st, sfile)
     feature('DefaultCharacterSet', 'windows-1251');
     load(sfile, '*');
     
     h = [hi, '<table class="cwdtable">\n'];
-    h = [h, addTr('boldtype', 'Параметры')];
-    h = [h, addTr('left', 'Коэффициенты  реакции  якоря:')];
-    ul = [sl('kad'), ' ', prc('kad'), '; ', ...
-          sl('kaq'), ' ', prc('kaq')];     
+    h = [h, addTr('boldtype', ['Активные и индуктивные сопротивления, ' ...
+            'постоянные времени'])];
+    h = [h, addTr('left', 'Коэффициенты  реакции  якоря')];
+    ul = [st.ns('kad'), ' ', st.prc('kad'), '; ', ...
+          st.ns('kaq'), ' ', st.prc('kaq')];     
     ul = sprintf(ul, kad, kaq);
     h = [h, addTr('ultd', ul)];
     h = [h, addTr('К расчету рассеяния демпферной обмотки')];
     h = [h, addTr('lnpv', 'bs1', bs1)];
     h = [h, addTr('left', 'Проводимость пазов:')];
-    ul = [sl('lamot'), ' ', prc('lamot'), '; ', ...
-          sl('lamz'), ' ', prc('lamz'), '; ', ...
-          sl('lamsr'), ' ', prc('lamsr')];     
+    ul = [st.ns('lamot'), ' ', st.prc('lamot'), '; ', ...
+          st.ns('lamz'), ' ', st.prc('lamz'), '; ', ...
+          st.ns('lamsr'), ' ', st.prc('lamsr')];     
     ul = sprintf(ul, lamot, lamz, lamsr);
     h = [h, addTr('ultd', ul)];
     
     h = [h, addTr('Активные сопротивления')];
-    h = [h, addTr('snpv', 'rast', rast)];
-    h = [h, addTr('snpv', 'r1', r1)];
-    h = [h, addTr('snpv', 'r2', r2)];
-    h = [h, addTr('snpv', 'rf', rf)];
-    h = [h, addTr('snpv', 'rkd', rkd)];
-    h = [h, addTr('snpv', 'rkq', rkq)];     
+    h = [h, listTr('snpv', st, sfile, 'rast', 'rkq')];
     
     h = [h, addTr('Индуктивные сопротивления')];
-    h = [h, addTr('snpv', 'xl', xl)];
-    h = [h, addTr('snpv', 'xad', xad)];    
-    h = [h, addTr('snpv', 'xaq', xaq)];
-    h = [h, addTr('snpv', 'xd', xd)];
-    h = [h, addTr('snpv', 'xq', xq)];    
-    h = [h, addTr('snpv', 'xf', xf)];    
-    h = [h, addTr('snpv', 'xfras', xfras)];
-    h = [h, addTr('snpv', 'xd1', xd1)];    
-    h = [h, addTr('snpv', 'xkd', xkd)];
-    h = [h, addTr('snpv', 'xkq', xkq)];
-    h = [h, addTr('snpv', 'xd2p', xd2p)];    
-    h = [h, addTr('snpv', 'xq2p', xq2p)];    
-    h = [h, addTr('snpv', 'x2', x2)];    
-    h = [h, addTr('snpv', 'x0', x0)];       
+    h = [h, listTr('snpv', st, sfile, 'xl', 'x0')];      
     
     h = [h, addTr('Постоянные времени')];
     h = [h, addTr('snpvd', 'td01', td01)];
     h = [h, addTr('snpvd', 'td1', td1)];
     h = [h, addTr('snpvd', 'ta', ta)];
-    h = [h, addTr('left','Демпферной обмотки по продольной оси:')];
+    h = [h, addTr('left', 'Демпферной обмотки по продольной оси:')];
     h = [h, addTr('snpvd', 'tc01', tc01, '&nbsp &nbsp')];
     h = [h, addTr('snpvd', 'td02', td02, '&nbsp &nbsp')];
     h = [h, addTr('snpvd', 'td2', td2, '&nbsp &nbsp')];    
-    h = [h, addTr('left','Демпферной обмотки по поперечной оси:')];
+    h = [h, addTr('left', 'Демпферной обмотки по поперечной оси:')];
     h = [h, addTr('snpvd', 'tq01', tq01, '&nbsp &nbsp')];
     h = [h, addTr('snpvd', 'tq2', tq2, '&nbsp &nbsp')];
     

@@ -4,7 +4,7 @@ function n = dimension()
     n = containers.Map('KeyType', 'char', 'ValueType', 'char');
     %% ќсновные данные
     n('tipmas') = '';
-    n('ce') = '';
+    n('ce') = 'к¬јмин/м&#179;';
     n('snom') = 'к¬ј';
     n('pnom') = 'к¬т';    
     n('n2p') = '';

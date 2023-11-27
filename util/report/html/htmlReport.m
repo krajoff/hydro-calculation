@@ -5,10 +5,10 @@ function htmlReport(sfile, gentype)
 
     h = headHtml;
     h = mainInfo(h, st, sfile);
-    h = magneticCircuitCalculation(h, sfile, st.nl, st.ns, st.prc);
+    h = magneticCircuitCalculation(h, st, sfile);
     h = noloadCharacteristic(h, sfile);
-    h = inductancesTime(h, sfile, st.ns, st.prc);
-    h = lossesRatedPower(h, sfile, st.nl, st.prc, st.dmn);
+    h = inductancesTime(h, st, sfile);
+    h = lossesRatedPower(h, st, sfile);
     h = lossesPartialLoad(h, sfile);
     h = weightCharacteristic(h, st, sfile);
     

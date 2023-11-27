@@ -1,5 +1,6 @@
 % Read initial FORTRAN77-files (aka dat-files) and m-files 
-function [id, genType] = readData(name, sf, cf)
+function [id, genType] = readData(name)
+    [sf, cf] = paths;
     [~, ~, ext] = fileparts(name);
     switch ext
         case '.dat'
