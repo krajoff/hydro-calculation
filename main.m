@@ -5,7 +5,7 @@ close all; clear; clc;
 
 % Convert input file. Supported files: .m, .dat, .xls
 %[id, genType] = readData('input_435_190_10.m');
-[id, genType] = readData('input_670_170_44.dat');
+[id, genType] = readData('input_670_170_44.m');
 %[id, genType] = readData('input_820_175_80.dat');
 %[id, genType] = readData('input_1285_275_42.dat');
 
