@@ -82,7 +82,7 @@ function soon(sfile, genType)
     end
     pje = ied(12)/qe;
     pqwen = pqwed(12);
-    if de ~=  0, pqwen = 0; end
+    if de ~= 0, pqwen = 0; end
     awnom = ied(12)*2*we;
 
     % OKZ
@@ -95,7 +95,7 @@ function soon(sfile, genType)
     % Charge capacity
     qczar = 0.8*snom/xd;
 
-    % Conductivity of demper winding
+    % Conductivity of damper winding
     if nz ~= 0, lamz = 1.7+2.8*hsz/bs1; end
     lamot = 1.7+2.8*hs/bs;
     lamsr = (nz*lamz+(nb-nz)*lamot)/nb;
@@ -254,7 +254,7 @@ function soon(sfile, genType)
     xq2 = imag(zq2);
     r2 = (r2d+r2q)/2.;
 
-    % Heet calculation of stator
+    % Heat calculation of stator
     wfe = (pqa+pqz+pqtkz)*1.e5/(pi*di*el);
     wcu = as*jja*fildk/4200.;
     wi = wcu*t/2/(b1+h);
@@ -279,7 +279,7 @@ function soon(sfile, genType)
     tets = wi/alfs;
     tetcu = ((tetfe+teti)*el+(teti+tets)*(0.5*ela-el))/0.5/ela;
 
-    % Heet calculation of rotor
+    % Heat calculation of rotor
     wcu2 = pje*pje*brotsr/400.;
     eke = 1./(elt/tau/10.)^(1./2.5);
     cnach = 10.;

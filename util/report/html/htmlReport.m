@@ -1,5 +1,6 @@
 function htmlReport(sfile, gentype)
-    file = fullfile(pwd, 'results\html', ['solution_', gentype, '.html']);
+    file = fullfile(pwd, 'results\html', ['solution_', ...
+        char(strrep(gentype, "/", "_")), '.html']);
     st = structure();
     feature('DefaultCharacterSet', 'windows-1251');
 
@@ -11,6 +12,7 @@ function htmlReport(sfile, gentype)
     h = lossesRatedPower(h, st, sfile);
     h = lossesPartialLoad(h, sfile);
     h = weightCharacteristic(h, st, sfile);
+    h = temperatureCalculation(h, st, sfile);
     
     fid = fopen(file, 'W', 'native', 'windows-1251');
     fprintf(fid, h);

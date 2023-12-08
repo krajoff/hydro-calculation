@@ -1,5 +1,5 @@
 function [data, gentype] = imDatFile(fileToRead)
-    fileID = fopen(fileToRead, 'r');
+    fileID = fopen(fileToRead, 'r', 'n', 'IBM866');
     nmb = 3;
     top = "";
     for i = 1:nmb
@@ -10,8 +10,9 @@ function [data, gentype] = imDatFile(fileToRead)
     end
     fclose(fileID);
     swrow = str2double(split(top(2), '   '));
-    gentype = regexprep(top(3),'[^0-9+-]','');
-    gentype = regexprep(gentype,'[*?:<>;"]','_');
+    gentype = top(3);
+    gentype = strtrim(gentype);
+    gentype = regexprep(gentype, '  ', ' ');
     gentype = char(gentype);
     data = readmatrix(fileToRead)';
     data = data(:);

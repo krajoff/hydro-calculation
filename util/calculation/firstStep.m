@@ -18,13 +18,9 @@ function firstStep(sfile)
     dc = int32(3*n2p);
     mdel = 0;
     if cc ~= 0 
-%   Old code from FORTRAN 77
-%	for j = 1:cc
-%       if (cc/j*j) == cc && (dc/j*j) == dc, mdel = j; end
-%   end
-        mdel = rem(dc,cc);
-        cc = cc/mdel;
-        dc = dc/mdel;
+        gcdel = gcd(dc,cc);
+        cc = cc/gcdel;
+        dc = dc/gcdel;
     end
     q = nz/3./n2p;
     if y-3*q <= 0 

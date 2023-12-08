@@ -10,7 +10,7 @@ function [awf1,xl,xmd] = xlcalc(elt,tau,awapr,fi1n,awdn, ...
 
     % Conditions for different types of winding
     niq = fix(q);
-    flq = double(niq);
+    flq = single(niq);
     qflq = q-flq;
     xplk = 0.306/fb2*awf1;
     difk = 0.156;

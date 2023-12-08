@@ -2,11 +2,11 @@
 % h - array of mds; b - arraxy of inductions
 % awt - current mds; bz - current induction
 
-function awt  =  zubtab(h,b,bz,nuzl)
-    if bz-b(1) <=  0
+function awt = zubtab(h,b,bz,nuzl)
+    if bz-b(1) <= 0
         tgal = b(1)/h(1);
         awt = bz/tgal;
-        return 
+        return; 
     end
 
     % Normal interpolation
@@ -17,7 +17,7 @@ function awt  =  zubtab(h,b,bz,nuzl)
             db = bz-b(jp);
             dh = db/tgal;
             awt = h(jp)+dh;
-            return
+            return;
         end
     end
 

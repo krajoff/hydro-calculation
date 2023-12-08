@@ -43,8 +43,8 @@ function dataLosses(sfile)
     bkb = t*elt/bz/elef;
     zkzx = bkb-1.;
 
-    % Recall. B for given ZKZX (!NB! nuzlz+1 -> nuzlz)
-    for j = 1:nuzlz
+    % Recall. B for given ZKZX
+    for j = 1:nuzlz+1
         bnew(j) = bnachz+stepbz*(j-1)+.4*pi*h3(j)*zkzx;
     end
     for j = 1:nhhh
@@ -139,26 +139,23 @@ function dataLosses(sfile)
         % Rotor armature(for auxilary gen.)
         if qj ~= 0
             bj = fim/(2.*qj);
-        % QJ- from drawing(qj=0. for main generator)
+            % QJ- from drawing(qj=0. for main generator)
             awt = tabint(bh2,bj,nuzlp,bnachp,stepbp);
             awj(ja) = awt*alj;
         else
             awj(ja) = 0;
         end
-
         % Summar MDS 
-        % (!NB! awdn=awd(jnom) -> 
-        % if ja == jnom, awdn = awd(jnom); end)
         awsum(ja) = awd(ja)+awaw(ja)+awzw(ja)+awmw(ja)+awj(ja)+awc(ja);
         if ja == nhhh+1, awsum(ja)=awsum(ja)+awad; end
         hhi(ja) = awsum(ja)/we/2.;
-        if ja == jnom, awdn = awd(jnom); end
-        
+        awdn = awd(jnom);
     end
-        xp1 = xl+xpxl;
-        for j = 1:nhhh+1
-            hhoe(j) = hhi(j)/hhi(jnom);
-        end
+   
+    xp1 = xl+xpxl;
+    for j = 1:nhhh+1
+        hhoe(j) = hhi(j)/hhi(jnom);
+    end
         
     clear('struct');    
     save(sfile);

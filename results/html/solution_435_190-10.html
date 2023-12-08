@@ -20,7 +20,7 @@
 .bordertd {border:0px solid black}
 .righttd {border:0px solid black;width:100px}
 .ultd {border:0px solid black;padding-left:20px}
-.rotate-sm-90 {font-size: 1rem; writing-mode:vertical-lr;transform:rotate(180deg)}
+.rotate-sm-90 {font-size: 14px; writing-mode:vertical-lr;transform:rotate(180deg)}
 </style>
 </head>
 <body>
@@ -545,13 +545,18 @@
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp&nbsp</td>
-<td class="bordertd">число стержней</td>
+<td class="bordertd">общее число стержней</td>
 <td class="righttd">8 </td>
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp&nbsp</td>
 <td class="bordertd">число открытых стержней</td>
 <td class="righttd">6 </td>
+</tr>
+<tr class="heighttr">
+<td colspan="1" class="center">&nbsp&nbsp</td>
+<td class="bordertd">число закрытых стержней</td>
+<td class="righttd">2 </td>
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp&nbsp</td>
@@ -572,11 +577,6 @@
 <td colspan="1" class="center">&nbsp&nbsp</td>
 <td class="bordertd">высота шлица открытых стержней</td>
 <td class="righttd">3.0 мм</td>
-</tr>
-<tr class="heighttr">
-<td colspan="1" class="center">&nbsp&nbsp</td>
-<td class="bordertd">число закрытых стержней</td>
-<td class="righttd">2.0 мм</td>
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp&nbsp</td>
@@ -1393,17 +1393,17 @@
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp</td>
-<td class="bordertd">Коэффициент Фильда</td>
+<td class="bordertd">коэффициент Фильда</td>
 <td class="righttd">1.0712 </td>
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp</td>
-<td class="bordertd">Коэффициент циркуляционных потерь</td>
+<td class="bordertd">коэффициент циркуляционных потерь</td>
 <td class="righttd">0.0425 </td>
 </tr>
 <tr class="heighttr">
 <td colspan="1" class="center">&nbsp</td>
-<td class="bordertd">Коэффициент добавочных потерь</td>
+<td class="bordertd">коэффициент добавочных потерь</td>
 <td class="righttd">0.0287 </td>
 </tr>
 <tr class="heighttr">
@@ -1856,9 +1856,15 @@
 <td colspan="2" class="bordertd">Масса демпферной системы</td>
 <td class="righttd">0.27 т</td>
 </tr>
+</table><table class="cwdtable">
+<tr class="heighttr">
+<td colspan="100" class="boldtype">
+Тепловой расчёт
+</td>
+</tr>
 <tr class="heighttr">
 <td colspan="100" class="center">
-Тепловой расчёт статора
+Статор
 </td>
 </tr>
 <tr class="heighttr">
@@ -1907,7 +1913,7 @@
 </tr>
 <tr class="heighttr">
 <td colspan="100" class="center">
-Тепловой расчёт обмотки возбуждения
+Обмотка возбуждения
 </td>
 </tr>
 <tr class="heighttr">
