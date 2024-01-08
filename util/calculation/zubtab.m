@@ -3,7 +3,7 @@
 % awt - current mds; bz - current induction
 
 function awt = zubtab(h,b,bz,nuzl)
-    if bz-b(1) <= 0
+    if bz-b(1) > 0
         tgal = b(1)/h(1);
         awt = bz/tgal;
         return; 

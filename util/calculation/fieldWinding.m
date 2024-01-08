@@ -11,7 +11,7 @@ function fieldWinding(sfile)
             if kr == 2
                 ele = 2.*(elm+bm-2.*besum)+pi*(3.*besum+2.*del22);
             elseif kr == 1
-                if bm <=  100
+                if bm <= 100
                     del2 = 12.5;
                 elseif bm > 100 && bm <= 120 
                     del2 = 15;

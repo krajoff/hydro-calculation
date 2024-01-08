@@ -54,6 +54,8 @@ function concordanceBlock(sfile)
     aklc = 1.+0.072*(dtau*10.)^(1./3)*(al/0.7)^3.;
     akld = 1.-0.132*(dtau*10.)^(1./3)+ 0.4*(delmm-1.5)*(deltau+0.005);
     aklam = aklc*akld;
+    % if(delmm.eq.1.) gk1=0.3
+    % if(delmm.eq.1.5) gk1=0.2     
     gk1 = tabint(ggk1, delmm, 3, 1., 0.5);
     if del == 0.35, ppa = 1.3; end
     if del == 0.35, ppz = 0.66; end

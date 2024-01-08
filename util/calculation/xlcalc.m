@@ -1,5 +1,5 @@
 function [awf1,xl,xmd] = xlcalc(elt,tau,awapr,fi1n,awdn, ...
-    q,bet,hdb,fb2, probm,nss)
+    q,bet,hdb,fb2,probm,nss)
         
     awf1 = awapr/(2*fi1n*10^8);
     xmd = awapr/awdn;
@@ -10,7 +10,7 @@ function [awf1,xl,xmd] = xlcalc(elt,tau,awapr,fi1n,awdn, ...
 
     % Conditions for different types of winding
     niq = fix(q);
-    flq = single(niq);
+    flq = double(niq);
     qflq = q-flq;
     xplk = 0.306/fb2*awf1;
     difk = 0.156;

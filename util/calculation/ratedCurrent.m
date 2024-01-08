@@ -8,11 +8,13 @@ function ratedCurrent(sfile)
     if ktr == 3 || ktr == 4, diz = (b1-bi-bo)/2; end
     hk = h1-h;
     hdb = (h1+diz+2.*hk)/b1;
+    % probm = 0 - wave winding 
+    % probm = 1 - lap winding
     fb2 = fbeta^2;
     zbaz = uf/ifaz;
     rast = ra75/zbaz;
     omeg = 2.*pi*fn;
-    eps0 = 8.86*10.^(-8);
+    eps0 = 8.86*10^(-8);
     epsr = 6.;
     d10 = d1*10.;
     dkd1 = (t+d10)/(bz+d10);
@@ -27,13 +29,13 @@ function ratedCurrent(sfile)
     end
 
     % Weight of insulation coil double-layer winding
-    % siz-cross section of insulation in slot
+    % size-cross section of insulation in slot
     skorp = 4*deliz*((2.*bi+1.04+deliz) + ...
         ((nprow/2.*ai+1.04)*nss/2.+deliz));
     switk = 1.04*nss*(1.04+2.*bi+nprow*ai/2.);
     siz = skorp+switk;
 
-    % Bar winding xtrans- correction factor due to typeoftransposition
+    % Bar winding xtrans-correction factor due to type of transposition
     xtrans = 1.;
     if qh ~= 0, xtrans = 0; end
     if ktr == 2, xtrans = 2; end
@@ -61,7 +63,7 @@ function ratedCurrent(sfile)
     end
     c1f = c3f/3.;
 
-    % Capacity of one phase of double-layerwinding
+    % Capacity of one phase of double-layer winding
     % without semi-conductive cover, un.lt.3150 V
     prom = (nprow*ast*nss+2.*bst)/diz;
     if un < 3150, c3f = npaz*el*prom*eps0*epsr*0.1; end
@@ -74,7 +76,7 @@ function ratedCurrent(sfile)
     crot = n2p*(50.*tau^1.5+0.242*arot*we*elm)*eps0;
 
     % Termo-resistance of demper winding
-    ddemek = sqrt((ddemz^2*nz+ddemot^2*struct.not)/nb);
+    ddemek = sqrt((ddemz^2*nz+ddemot^2*not)/nb);
     ddemf = ddemek;
 
     % Ddemek-equivalent diameter of dempfer winding
