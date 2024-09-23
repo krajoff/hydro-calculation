@@ -9,7 +9,9 @@ function [data, gentype] = imDatFile(fileToRead)
         end
     end
     fclose(fileID);
-    swrow = str2double(split(top(2), '   '));
+    top(2) = regexprep(top(2), ' +', ' ');
+    swrow = str2double(split(top(2)));
+    swrow = swrow(~isnan(swrow));
     gentype = top(3);
     gentype = strtrim(gentype);
     gentype = regexprep(gentype, '  ', ' ');
