@@ -1,19 +1,13 @@
 function [y, cons] = TP_Hydrogenerator_670_170_44_objfun(x)
+    y = [0,0];
+    cons = [0,0];
 
-y = [0,0];
-cons = [0,0];
-
-y(1) = x(1);
-y(2) = (1+x(2)) / x(1);
-
-% calculate the constraint violations
-c = x(2) + 9*x(1) - 6;
-if(c<0)
-    cons(1) = abs(c);
-end
-
-c = -x(2) + 9*x(1) - 1;
-if(c<0)
-    cons(2) = abs(c);
-end
-
+    [sf, cf] = paths;
+    [id, genType] = readData('input_670_170_44.m');
+    id.da = x(1); id.di = x(2); id.elt = x(3);
+    joinStructByCell({id; cf}, sf);
+    
+    pull(sf, genType);
+    struct = open(sf); 
+    y(1) = struct.kpdd(12);
+    y(2) = struct.gs;

@@ -3,10 +3,10 @@
 %*************************************************************************
 
 options = nsgaopt();                    % create default options structure
-options.popsize = 10;                   % populaion size
-options.maxGen  = 40;                   % max generation
+options.popsize = 100;                  % populaion size
+options.maxGen  = 10;                   % max generation
 
-options.numObj = 3;                     % number of objectives
+options.numObj = 2;                     % number of objectives
 options.numVar = 3;                     % number of design variables
 options.numCons = 0;                    % number of constraints
 
@@ -19,6 +19,6 @@ options.objfun = @TP_Hydrogenerator_670_170_44_objfun;
 options.plotInterval = 100;                        
 %oldresult=loadpopfile('populations.txt');
 %options.initfun={@initpop, oldresult};
-options.useParallel = 'no'; 
-options.poolsize = 13; 
+%options.useParallel = 'no'; 
+%options.poolsize = 1; 
 result = nsga2(options);               

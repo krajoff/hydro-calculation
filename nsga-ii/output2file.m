@@ -58,6 +58,7 @@ end
 if(type == -1)
     fclose(fid);
     rmfield(opt, 'outputfileFID');
+    fprintf('The last call');
     return
 end
 
