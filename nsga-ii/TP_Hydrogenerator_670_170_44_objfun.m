@@ -9,5 +9,5 @@ function [y, cons] = TP_Hydrogenerator_670_170_44_objfun(x)
     
     pull(sf, genType);
     struct = open(sf); 
-    y(1) = struct.kpdd(12);
+    y(1) = 1/struct.kpdd(12);
     y(2) = struct.gs;
