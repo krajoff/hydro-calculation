@@ -12,3 +12,4 @@ Paper A.S., Pinsky G.B., Shkolnik E.V. Hydrogenerators. Energoizdat, 368 p. 2. I
 | result | Calculation summary at html, pdf, xls|
 | stations | Initial parameters of generators |
 | util | Pull of additional app |
+| nsga-ii | Optimization add-on |
