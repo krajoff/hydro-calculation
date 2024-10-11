@@ -1,10 +1,15 @@
-function calculation(sfile)
-	load(sfile, '*');
-    struct = open(sfile); 
-	bm = struct.bm;
-    db = struct.db; 
-	ar = struct.ar;	
-	
+function workspace = calculation(structure)
+
+    % Получаем имена полей структуры
+    fields = fieldnames(structure);
+    
+    % Присваиваем значения полей как переменные
+    for i = 1:length(fields)
+        eval([fields{i}, ' = structure.(fields{i});']);
+    end
+    bm = structure.bm; db = structure.db; ar = structure.ar;
+    clear('struct');
+
 	if cosfi == 1, cosfi = 0.9999999; end
     nhhh = 7;
     nuzls = nuzs;
@@ -811,6 +816,17 @@ function calculation(sfile)
         urotfi(j) = ied(j)*rtefi;
         urot1(j) = ie1d(j)*rte1;
     end
-    clear('struct');
-    save(sfile);
+
+    % Получаем все переменные в workspace
+    vars = whos;
+
+    % Создаём пустую структуру
+    workspace = struct();
+
+    % Копируем каждую переменную в структуру
+    for i = 1:length(vars)
+        varName = vars(i).name;  % Имя переменной
+        workspace.(varName) = eval(varName);
+    end
+    
 end

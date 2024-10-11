@@ -1,10 +1,10 @@
 %*************************************************************************
 %   Test Problem : 'Hydrogenerator 670/170-44'
 %*************************************************************************
-
+paths;
 options = nsgaopt();                    % create default options structure
-options.popsize = 20;                  % populaion size
-options.maxGen  = 5;                   % max generation
+options.popsize = 20;                   % populaion size
+options.maxGen  = 5;                    % max generation
 
 options.numObj = 2;                     % number of objectives
 options.numVar = 3;                     % number of design variables

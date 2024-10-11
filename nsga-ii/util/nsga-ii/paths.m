@@ -2,8 +2,8 @@
 function [sf, cf] = paths
     sf = 'data\struct.mat';
     cf = 'data\commondata.mat';
-    if exist(sf, 'file'), delete(sf); end
     folder = fileparts(which(matlab.desktop.editor.getActiveFilename)); 
+    if exist([folder, sf], 'file'), delete(sf); end
     addpath(genpath(folder));
     commonData(cf);
 end
