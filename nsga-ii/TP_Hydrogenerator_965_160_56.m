@@ -8,7 +8,7 @@ options.maxGen  = 10;                    % max generation
 
 options.numObj = 2;                     % number of objectives
 options.numVar = 3;                     % number of design variables
-options.numCons = 1;                    % number of constraints
+options.numCons = 2;                    % number of constraints
 
 options.lb = [9650-20 9000-20 1600-20]; % lower bound
 options.ub = [9650+20 9000+20 1600+20]; % upper bound
