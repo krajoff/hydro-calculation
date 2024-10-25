@@ -1,16 +1,21 @@
-function cons = checkConstrains(T, struct)
-    cons = [];
+function cons = checkConstrains(cons, T, calculatedStruct)
+    prc = precision();
+    msg = "Bad: ";
     for i = 1:height(T)
         paramName = T.Parameters{i};
-        paramValue = struct.(paramName);
-
-        % ѕровер€ем, если минимальное и максимальное значени€ существуют
-        if ~isnan(T.Min(i)) && paramValue < T.Min(i)
-            cons(end+1) = paramValue;  % ƒобавл€ем значение в array, если меньше минимума
-        elseif ~isnan(T.Max(i)) && paramValue > T.Max(i)
-            cons(end+1) = paramValue;  % ƒобавл€ем значение в array, если больше максимума
+        structValue = calculatedStruct.(paramName);
+        formatSpec = prc(paramName);
+        if ~isnan(T.Min(i)) && structValue < T.Min(i)
+            cons(i) = structValue;
+            msg = msg + paramName + sprintf(['=' formatSpec], structValue) + " ";
+        elseif ~isnan(T.Max(i)) && structValue > T.Max(i)
+            cons(i) = structValue;
+            msg = msg + paramName + sprintf(['=' formatSpec], structValue) + " ";
         else
-            cons(end+1) = 0;  % ƒобавл€ем 0, если значение в пределах
+            cons(i) = 0;
         end
+    end
+    if msg ~= "Bad: "
+        fprintf(msg);
     end
 end
