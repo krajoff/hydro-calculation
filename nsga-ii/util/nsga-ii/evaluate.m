@@ -77,6 +77,7 @@ if( ~isempty(indi.cons) )
     if( ~isempty(idx) )
         indi.nViol = length(idx);
         indi.violSum = sum( abs(cons) );
+        indi.cons = cons;
     else
         indi.nViol = 0;
         indi.violSum = 0;

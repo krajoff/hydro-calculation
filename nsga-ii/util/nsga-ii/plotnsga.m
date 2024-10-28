@@ -297,9 +297,28 @@ end
 % Plot population with different methods for every "numObj" number
 %*************************************************************************
 if(numObj == 2)
-    plot(obj(:,1), obj(:,2), 'ob');
+    
+    % »ндексы точек, которые удовлетвор€ют условию
+    red_indices = ~cellfun(@isempty, arrayfun(@(i) find(pop(i).cons), ...
+    1:length(pop), 'UniformOutput', false));
+    
+    % –аздел€ем данные
+    x_data = obj(:,1);
+    y_data = obj(:,2);
+    
+    % —троим точки, которые не удовлетвор€ют условию (синие)
+    plot(x_data(~red_indices), y_data(~red_indices), 'ob');
+    hold on;
+    
+    % —троим точки, которые удовлетвор€ют условию (красные)
+    plot(x_data(red_indices), y_data(red_indices), 'or', ...
+    'MarkerEdgeColor', 'r'); % красные точки
+    hold off;
+
+    %plot(obj(:,1), obj(:,2), 'ob');
     xlabel(strObj1, 'interpreter', 'none');
     ylabel(strObj2, 'interpreter', 'none');
+    % index of out of constrains
     % plot reference points
     if(~isempty(refPoints))
         hold on
@@ -310,6 +329,7 @@ if(numObj == 2)
         plot(refPoint(:, 1), refPoint(:, 2), refPlotStyle{:});
     end
     grid on
+    
 elseif(numObj == 3)
     [az, el] = view;    % Save the last view angles
     plot3(obj(:,1), obj(:,2), obj(:,3), 'ob');
