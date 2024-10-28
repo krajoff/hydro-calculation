@@ -40,7 +40,8 @@ defaultopt = struct(...
     'refPoints', [],...                              % Reference point(s) used to specify preference. Each row is a reference point.
     'refWeight', [],...                              % weight factor used in the calculation of Euclidean distance
     'refUseNormDistance', 'front',...                % use normalized Euclidean distance by maximum and minumum objectives possiable. {'front','ever','no'}
-    'refEpsilon', 0.001 ...                          % parameter used in epsilon-based selection strategy
+    'refEpsilon', 0.001, ...                          % parameter used in epsilon-based selection strategy
+    'refPoint', [] ...
 );
 
 

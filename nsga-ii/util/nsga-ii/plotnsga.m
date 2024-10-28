@@ -281,15 +281,17 @@ end
 
 % Determin if reference points exist
 refPoints = [];
-refPlotStyle = {'kd', ...
+refPlotStyle = {'-p', ...
         'LineWidth', 1,...
-        'MarkerEdgeColor', 'k',...
-        'MarkerFaceColor', 'g',...
-        'MarkerSize',6};
+        'MarkerEdgeColor', 'black',...
+        'MarkerFaceColor', 'red',...
+        'MarkerSize',7};
 if( isfield(handles.result, 'opt') && ~isempty(handles.result.opt.refPoints) )
     refPoints = handles.result.opt.refPoints;
 end
-
+if( isfield(handles.result, 'opt') && ~isempty(handles.result.opt.refPoint) )
+    refPoint = handles.result.opt.refPoint;
+end
 
 %*************************************************************************
 % Plot population with different methods for every "numObj" number
@@ -298,23 +300,25 @@ if(numObj == 2)
     plot(obj(:,1), obj(:,2), 'ob');
     xlabel(strObj1, 'interpreter', 'none');
     ylabel(strObj2, 'interpreter', 'none');
-%    axis([0.275 0.3 4e5 5.5e5]); %new axis
     % plot reference points
     if(~isempty(refPoints))
         hold on
         plot(refPoints(:, 1), refPoints(:, 2), refPlotStyle{:});
     end
+    if(~isempty(refPoint))
+        hold on
+        plot(refPoint(:, 1), refPoint(:, 2), refPlotStyle{:});
+    end
+    grid on
 elseif(numObj == 3)
     [az, el] = view;    % Save the last view angles
-    plot3(obj(:,1), obj(:,2), obj(:,3), 'ob', 0.290358, 473450, 5.936e-5, 'pr');
+    plot3(obj(:,1), obj(:,2), obj(:,3), 'ob');
     view(az,el);        % Restore the last view angles
     xlabel(strObj1, 'interpreter', 'none');
     ylabel(strObj2, 'interpreter', 'none');
     zlabel(strObj3, 'interpreter', 'none');
-    set(gca,'CameraPosition',[0 5.5e5 5.6e-5])
-    axis([0.25 0.32 3.5e5 7e5 4.5e-5 7.0e-5]); % new axis
-    grid on % new
-    box on % new
+    grid on
+    box on
     % plot reference points
     if(~isempty(refPoints))
         hold on
