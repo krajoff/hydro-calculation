@@ -298,21 +298,21 @@ end
 %*************************************************************************
 if(numObj == 2)
     
-    % Индексы точек, которые удовлетворяют условию
+    % Г€Г­Г¤ГҐГЄГ±Г» ГІГ®Г·ГҐГЄ, ГЄГ®ГІГ®Г°Г»ГҐ ГіГ¤Г®ГўГ«ГҐГІГўГ®Г°ГїГѕГІ ГіГ±Г«Г®ГўГЁГѕ
     red_indices = ~cellfun(@isempty, arrayfun(@(i) find(pop(i).cons), ...
     1:length(pop), 'UniformOutput', false));
     
-    % Разделяем данные
+    % ГђГ Г§Г¤ГҐГ«ГїГҐГ¬ Г¤Г Г­Г­Г»ГҐ
     x_data = obj(:,1);
     y_data = obj(:,2);
     
-    % Строим точки, которые не удовлетворяют условию (синие)
+    % Г‘ГІГ°Г®ГЁГ¬ ГІГ®Г·ГЄГЁ, ГЄГ®ГІГ®Г°Г»ГҐ Г­ГҐ ГіГ¤Г®ГўГ«ГҐГІГўГ®Г°ГїГѕГІ ГіГ±Г«Г®ГўГЁГѕ (Г±ГЁГ­ГЁГҐ)
     plot(x_data(~red_indices), y_data(~red_indices), 'ob');
     hold on;
     
-    % Строим точки, которые удовлетворяют условию (красные)
+    % Г‘ГІГ°Г®ГЁГ¬ ГІГ®Г·ГЄГЁ, ГЄГ®ГІГ®Г°Г»ГҐ ГіГ¤Г®ГўГ«ГҐГІГўГ®Г°ГїГѕГІ ГіГ±Г«Г®ГўГЁГѕ (ГЄГ°Г Г±Г­Г»ГҐ)
     plot(x_data(red_indices), y_data(red_indices), 'or', ...
-    'MarkerEdgeColor', 'r'); % красные точки
+    'MarkerEdgeColor', 'r'); % ГЄГ°Г Г±Г­Г»ГҐ ГІГ®Г·ГЄГЁ
     hold off;
 
     %plot(obj(:,1), obj(:,2), 'ob');
@@ -324,7 +324,7 @@ if(numObj == 2)
         hold on
         plot(refPoints(:, 1), refPoints(:, 2), refPlotStyle{:});
     end
-    if(~isempty(refPoint))
+    if(exist('refPoint') && ~isempty(refPoint))
         hold on
         plot(refPoint(:, 1), refPoint(:, 2), refPlotStyle{:});
     end
