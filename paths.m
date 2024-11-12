@@ -3,7 +3,15 @@ function [sf, cf] = paths
     sf = 'data\struct.mat';
     cf = 'data\commondata.mat';
     if exist(sf, 'file'), delete(sf); end
+    
     folder = fileparts(which(matlab.desktop.editor.getActiveFilename)); 
-    addpath(genpath(folder));
+    
+    allPaths = genpath(folder);
+    pathList = strsplit(allPaths, pathsep);
+    excludePath = fullfile(folder, 'nsga-ii');
+    filteredPaths = pathList(~contains(pathList, excludePath));
+    filteredPathsStr = strjoin(filteredPaths, pathsep);
+    addpath(filteredPathsStr);
+    
     commonData(cf);
 end

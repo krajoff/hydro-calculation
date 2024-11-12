@@ -3,8 +3,8 @@
 %*************************************************************************
 paths;
 options = nsgaopt();                    % create default options structure
-options.popsize = 200;                  % populaion size
-options.maxGen  = 20;                   % max generation
+options.popsize = 10;                  % populaion size
+options.maxGen  = 10;                   % max generation
 
 options.numObj = 2;                     % number of objectives
 options.numCons = 14;                   % number of constraints
