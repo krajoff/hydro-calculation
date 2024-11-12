@@ -4,24 +4,23 @@ function [y, cons] = TP_Hydrogenerator_965_160_56_objfun(x)
     cons = zeros(1,14);
         
     [id,~] = readData('input_965_160_56.dat');
+    commonStruct = load('data\commondata.mat');
     tableConstrains = constrains();
     
     % Переопределение исходных данных 
     id.da = x(1); id.di = x(2); id.elt = x(3); 
-    id.delta = x(4); id.we = x(5);
-    % Вычисление/переопределение высоты полюсного сердечника
+    id.delta = x(4); id.we = x(5); id.bp = x(6);
+    id.bp1 = x(7); id.bm = x(8); id.be = x(9);
+    id.hs = x(10); id.bs = x(11); id.hsz = x(12);
+    % Вычисление/переопределение высоты полюсного сердечник
     id.hm = floor((id.ae+.4)*id.we+id.ae+28)+1; 
+    id.nr = round((id.elt+id.bk)/53-1); % переопределение количества вент.канаов в статоре
+
+    mainStruct = joinStructs(id, commonStruct);
+    mainStruct = calculation(mainStruct);
+    y(1) = 1/mainStruct.kpdd(12);
+    y(2) = mainStruct.gs;
     
-    commonStruct = load('data\commondata.mat');
-    ms = joinStructs(id, commonStruct);
-    ms = calculation(ms);
-    
-    % Вычисление средневзвешенного КПД (пример из Тайнионкоски ГЭС):
-    effw = (9*ms.kpdd(12)+22*ms.kpdd(11)+33*(ms.kpdd(10)+...
-        ms.kpdd(11))/2+26*ms.kpdd(9)+10*(ms.kpdd(7)+ms.kpdd(8))/2);
-    y(1) = 1/ms.kpdd(12);
-    y(2) = ms.gs;
-    
-    cons = checkConstrains(cons, tableConstrains, ms);
+    cons = checkConstrains(cons, tableConstrains, mainStruct);
          
 end
